@@ -1,0 +1,7 @@
+Format:
+firstL -- TIMESTAMP\n
+e.g.: topherM -- 1999-12-31 23:59
+
+DEVLOG
+anyaK -- 2016-12-3 11:15:49
+Added DEVLOG and setup .gitignore
