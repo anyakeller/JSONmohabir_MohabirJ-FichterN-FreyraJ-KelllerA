@@ -8,3 +8,6 @@ Added DEVLOG and setup .gitignore
 
 noahF -- 2016-12-04 10:30
 Made sitemap and page mockups for design doc
+
+juliusF -- 2016-12-04 11:30
+Made component map and updated component list for design doc
