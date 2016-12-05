@@ -3,5 +3,8 @@ firstL -- TIMESTAMP\n
 e.g.: topherM -- 1999-12-31 23:59
 
 DEVLOG
-anyaK -- 2016-12-3 11:15:49
+anyaK -- 2016-12-03 11:15
 Added DEVLOG and setup .gitignore
+
+noahF -- 2016-12-04 10:30
+Made sitemap and page mockups for design doc
