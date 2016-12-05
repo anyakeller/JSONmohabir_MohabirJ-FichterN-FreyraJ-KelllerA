@@ -11,3 +11,6 @@ Made sitemap and page mockups for design doc
 
 juliusF -- 2016-12-04 11:30
 Made component map and updated component list for design doc
+
+juliusF -- 2016-12-05 1:05
+Grabbed API keys, updated design doc with relevant keys and secrets
