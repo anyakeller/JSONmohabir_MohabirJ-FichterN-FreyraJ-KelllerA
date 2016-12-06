@@ -12,14 +12,20 @@ Made sitemap and page mockups for design doc
 juliusF -- 2016-12-04 11:30
 Made component map and updated component list for design doc
 
-juliusF -- 2016-12-05 13:05
-Grabbed API keys, updated design doc with relevant keys and secrets
-
 noahF -- 2016-12-04 13:20
 Began testing API 0 (SeatGeek)
+
+juliusF -- 2016-12-05 13:05
+Grabbed API keys, updated design doc with relevant keys and secrets
 
 noahF -- 2016-12-05 20:00
 Finished testing API 0 (SeatGeek)
 
 juliusF -- 2016-12-05 22:30
 Finished testing APIs 3 and 4 (Ticketleap, Ticketmaster)
+
+jasonM -- 2016-12-05 22:30
+Began testing API 1 (Universe)
+
+jasonM -- 2016-12-06 23:30
+Finished testing API 1 (Universe)
