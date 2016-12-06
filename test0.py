@@ -10,7 +10,7 @@ def root():
     u = urllib2.urlopen("https://api.seatgeek.com/2/events?venue.state=NY")
     response = u.read()
     data = json.loads(response)
-    print(data)
+    print(data['events'][0])
     #return render_template("index.html", pic = data['url'] )
 
 
