@@ -27,5 +27,8 @@ Finished testing APIs 3 and 4 (Ticketleap, Ticketmaster)
 jasonM -- 2016-12-05 22:30
 Began testing API 1 (Universe)
 
-jasonM -- 2016-12-06 23:30
+jasonM -- 2016-12-05 23:30
 Finished testing API 1 (Universe)
+
+juliusF -- 2016-12-06 14:05
+made utils folder, started ticketleap utils py file
