@@ -32,3 +32,15 @@ Finished testing API 1 (Universe)
 
 juliusF -- 2016-12-06 14:05
 made utils folder, started ticketleap utils py file
+
+juliusF -- 2016-12-06 22:40
+wrote basic ticketleap py file, will include sorting in the future
+current functionality:
+
+	Input: Single word query
+      Returns: List of events relevant to the query in New York and information separated in a list of entries
+
+      Each entry is grouped by the most general shared information
+       - Tickets of similar organization are grouped together
+       - Tickets of similar events are grouped together
+       - Tickets of similar performances are grouped together and separated by ticket type
