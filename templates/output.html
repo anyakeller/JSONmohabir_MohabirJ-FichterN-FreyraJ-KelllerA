@@ -14,7 +14,7 @@
 	<img class="topbarimg" id="topimg" src="../static/img/logo.png">
       </div>
     </div>
-    
+
     <div data-sticky-container>
       <div class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="topimg:bottom">
 	<div class="top-bar-left">
@@ -36,48 +36,38 @@
 	</div>
       </div>
     </div>
-    
+
     <br><br><br>
 
-    <form name="query" action="display.py" method="get">
-      <div class="row">
-	<div class="small-10 columns callout">
-	  <div class="row">
-	    <div class="small-12 columns">	
-              <input type="text" id="searchTerm" placeholder="Search"/>
-	    </div>
-	  </div>
-	  <div class="row">
-	    <div class="small-2 columns">
-	      <input type="number" id="minPrice">
-	    </div>
-	    <div class="small-8 columns">
-	      <div class="slider" data-slider data-initial-start="0" data-initial-end="1000" data-end="1000" data-step="5">
-		<span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="minPrice"></span>
-		<span class="slider-fill" data-slider-fill></span>
-		<span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="maxPrice"></span>
-	      </div>
-	    </div>
-	    <div class="small-2 columns">
-	      <input type="number" id="maxPrice">
-	    </div>
-	    <div class="small-12 columns">
-	      <label>
-		How many seats?
-		<input type="number" value="">
-	      </label>
-	    </div>
-	    <div class="row">
-	      <div class="small-12 columns">
-		<div class="input-group-button">
-		  <input type="submit" class="button" id="go" value="Search">
-		</div>
-	      </div>
-	    </div>
+    <base href={{ currentUrl }}/>
+
+    <div class="row">
+      <div class="small-6 columns">
+	<button class="button" type="button" data-toggle="sort-dropdown">Sort By</button>
+	<div class="row">
+	  <div class="dropdown-pane bottom" id="sort-dropdown" data-dropdown>
+	    <ul class="vertical dropdown menu" data-dropdown-menu>
+	      <li><a href="&">Price (Ascending)</a></li>
+	      <li><a href="&">Price (Descending</a></li>
+	      <li><a href="&">Seat Distance (Ascending)</a></li>
+	      <li><a href="&">Seat Distance (Descending)</a></li>
+	    </ul>
 	  </div>
 	</div>
       </div>
-    </form>
+      <div class="small-6 columns">
+	<button class="button" type="button" data-toggle="filter-dropdown">Filter</button>
+	<div class="row">
+	  <div class="dropdown-pane bottom" id="filter-dropdown" data-dropdown>
+	    <ul class="vertical dropdown menu" data-dropdown-menu>
+	      <li><a href="&">Price (Ascending)</a></li>
+	      <li><a href="&">Price (Descending</a></li>
+	      <li><a href="&">Seat Distance (Ascending)</a></li>
+	      <li><a href="&">Seat Distance (Descending)</a></li>
+	    </ul>
+	  </div>
+	</div>
+    </div>
 
     <script src="../static/js/vendor/jquery.js"></script>
     <script src="../static/js/vendor/what-input.js"></script>
@@ -86,6 +76,7 @@
     <script src="../static/js/foundation/foundation.sticky.js"></script>
     <script src="../static/js/foundation/foundation.core.js"></script>
     <script src="../static/js/foundation/foundation.slider.js"></script>
+    <script src="../static/js/foundation/foundation.dropdownMenu.js"></script>
     <script src="../static/js/app.js"></script>
 
     <script>
@@ -93,5 +84,6 @@
       jQuery(document).foundation();
       });
     </script>
+
   </body>
 </html>
