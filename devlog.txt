@@ -44,3 +44,6 @@ current functionality:
        - Tickets of similar organization are grouped together
        - Tickets of similar events are grouped together
        - Tickets of similar performances are grouped together and separated by ticket type
+
+noahF -- 2016-12-06 13:20
+Continued working on index.html
