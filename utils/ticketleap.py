@@ -6,6 +6,8 @@ from requests.auth import HTTPBasicAuth
 #    Input: Single word query
 #  Returns: List of events relevant to the query in New York and information separated in a list of entries
 #
+#           [organization, event, performance, url, time, ticket type, price, seat]
+#
 #  Each entry is grouped by the most general shared information
 #       - Tickets of similar organization are grouped together
 #       - Tickets of similar events are grouped together
@@ -60,6 +62,7 @@ def ticketleap(query):
                 entry.append(data['start_utc'])
                 entry.append(ticket_type['name'])
                 entry.append(ticket_type['price'])
+                entry.append("N/A")
 
                 fullList.append(entry)
 
