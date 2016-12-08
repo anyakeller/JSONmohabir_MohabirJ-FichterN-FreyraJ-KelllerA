@@ -63,7 +63,7 @@ def ticketleap(query):
                 entry.append(ticket_type['name'])
                 
                 if(ticket_type['price'] == "BUYER_DEFINED_PRICE"):
-                    entry.append(0)
+                    entry.append(0) # let prices the buyer can define float to the top
                 else:
                     entry.append(ticket_type['price'])
                 entry.append("N/A")
@@ -77,7 +77,7 @@ def byPrice(query):
     orderedList = []
     fullList = ticketleap(query)
 
-    orderedList = sorted(fullList, key=lambda entry: float(entry[6]))
+    orderedList = sorted(fullList, key=lambda entry: round(float(entry[6],2)))
 
     for i in orderedList:
         if i[6] == 0:

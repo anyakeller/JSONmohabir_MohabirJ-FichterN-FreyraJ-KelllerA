@@ -61,7 +61,7 @@ def ticketmaster(query):
             entry.append(url)
             entry.append(time)
             entry.append(ticket_type)
-            entry.append(price)
+            entry.append(999999) # let undefined prices sink to the bottom
             entry.append(seat)
 
             fullList.append(entry)
@@ -70,10 +70,24 @@ def ticketmaster(query):
     return fullList
 
 
+def byPrice(query):
+
+    orderedList = []
+    fullList = ticketmaster(query)
+
+    orderedList = sorted(fullList, key=lambda entry: float(entry[6]))
+
+    for i in orderedList:
+        if i[6] == 999999:
+            i[6] = "N/A: Price not Defined"
+
+    return orderedList
 
 ## TESTING ##
 
-# def main():
-#      print(ticketmaster("music"))
+def main():
+     listF = byPrice("music")
+     for i in listF:
+         print(i[6])
 
-# main()
+main()
