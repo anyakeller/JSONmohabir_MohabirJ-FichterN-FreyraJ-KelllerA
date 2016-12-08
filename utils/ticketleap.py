@@ -61,17 +61,33 @@ def ticketleap(query):
                 entry.append(data['url'])
                 entry.append(data['start_utc'])
                 entry.append(ticket_type['name'])
-                entry.append(ticket_type['price'])
+                
+                if(ticket_type['price'] == "BUYER_DEFINED_PRICE"):
+                    entry.append(0)
+                else:
+                    entry.append(ticket_type['price'])
                 entry.append("N/A")
 
                 fullList.append(entry)
 
     return fullList
 
+def byPrice(query):
+
+    orderedList = []
+    fullList = ticketleap(query)
+
+    orderedList = sorted(fullList, key=lambda entry: float(entry[6]))
+
+    for i in orderedList:
+        if i[6] == 0:
+            i[6] = "N/A: Price Defined by Buyer"
+
+    return orderedList
 
 ## TESTING ##
 
-# def main():
-#      ticketleap("music")
+def main():
+     print(byPrice("music"))
 
-# main()
+main()
