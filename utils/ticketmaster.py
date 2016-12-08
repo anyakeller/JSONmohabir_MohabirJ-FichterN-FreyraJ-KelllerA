@@ -8,11 +8,6 @@ from requests.auth import HTTPBasicAuth
 #
 #           [organization, event, performance, url, time, ticket type, price, seat]
 #
-#  Each entry is grouped by the most general shared information
-#       - Tickets of similar organization are grouped together
-#       - Tickets of similar events are grouped together
-#       - Tickets of similar performances are grouped together and separated by ticket type
-#
 def ticketmaster(query):
 
     fullList = []
@@ -29,4 +24,56 @@ def ticketmaster(query):
         eventName = i['name']
         perfName = i['name']
         url = i['url']
-        
+        time = i['dates']['start']['localDate']
+
+        if(i['dates']['start']['timeTBA']):
+            time += " Time TBA"
+        elif(i['dates']['start']['noSpecificTime']):
+            time += " Time N/A"
+        else:
+            time = i['dates']['start']['dateTime']
+
+        ticket_type = "N/A"
+        price = "N/A"
+        seat = "N/A"
+        if('priceRanges' in i):
+            for p in i['priceRanges']:
+                entry = []
+                ticket_type = p['type']
+                price = p['min']
+
+                entry.append(orgName)
+                entry.append(eventName)
+                entry.append(perfName)
+                entry.append(url)
+                entry.append(time)
+                entry.append(ticket_type)
+                entry.append(price)
+                entry.append(seat)
+
+                fullList.append(entry)
+                
+        else:
+            
+            entry.append(orgName)
+            entry.append(eventName)
+            entry.append(perfName)
+            entry.append(url)
+            entry.append(time)
+            entry.append(ticket_type)
+            entry.append(price)
+            entry.append(seat)
+
+            fullList.append(entry)
+
+
+    return fullList
+
+
+
+## TESTING ##
+
+# def main():
+#      print(ticketmaster("music"))
+
+# main()
