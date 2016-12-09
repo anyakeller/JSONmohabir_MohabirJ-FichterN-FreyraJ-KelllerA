@@ -1,5 +1,5 @@
 CANOE Devlog
-by JSOJmohabir
+by JSONmohabir
 (Jason Mohabir, Noah Fichter, Julius Freya, Anya Keller)
 
 Format:
@@ -68,7 +68,11 @@ current functionality:
 noahF -- 2016-12-08 20:20
 Finished output.html, jinja needs to be linked through flask app
 
+jasonM -- 2016-12-08 22:27
+Recieved responses from Universe and Ticket City API requests for keys. Both have not provided the CLIENT_ID and CLIENT_SERVICE keys. Began research on alternative APIs and responded to both API managers for second attempt. 
+
 juliusF -- 2016-12-08 24:50
 finished byPrice() functions for all existing api py files, byPrice orders entries by price in ascending order, giving
 entries without valid prices weights depending on the reason they do not have prices
 finished seatgeak api py file
+
