@@ -40,17 +40,28 @@
     <br><br><br>
 
     <base href={{ currentUrl }}/>
-
+    
     <div class="row">
       <div class="small-6 columns">
 	<button class="button" type="button" data-toggle="sort-dropdown">Sort By</button>
 	<div class="row">
 	  <div class="dropdown-pane bottom" id="sort-dropdown" data-dropdown>
 	    <ul class="vertical dropdown menu" data-dropdown-menu>
-	      <li><a href="&">Price (Ascending)</a></li>
-	      <li><a href="&">Price (Descending</a></li>
-	      <li><a href="&">Seat Distance (Ascending)</a></li>
-	      <li><a href="&">Seat Distance (Descending)</a></li>
+	      <form name="filter" action="display.py" method="get">
+		<input type="radio" name="filterbuttons" value="priceAscending" id="filterPA">
+		<label for="filterPA">Price (Ascending)</label>
+		<br>
+		<input type="radio" name="filterbuttons" value="priceDescending" id="filterPD">
+		<label for="filterPD">Price (Descending)</label>
+		<br>
+		<input type="radio" name="filterbuttons" value="distAscending" id="filterDA">
+		<label for="filterDA">Seat Distance (Ascending)</label>
+		<br>
+		<input type="radio" name="filterbuttons" value="distDescending" id="filterDD">
+		<label for="filterDD">Seat Distance (Ascending)</label>
+		<br>
+		<button type="button" class="button">Go</button>
+	      </form>
 	    </ul>
 	  </div>
 	</div>
@@ -60,13 +71,35 @@
 	<div class="row">
 	  <div class="dropdown-pane bottom" id="filter-dropdown" data-dropdown>
 	    <ul class="vertical dropdown menu" data-dropdown-menu>
-	      <li><a href="&">Price (Ascending)</a></li>
-	      <li><a href="&">Price (Descending</a></li>
-	      <li><a href="&">Seat Distance (Ascending)</a></li>
-	      <li><a href="&">Seat Distance (Descending)</a></li>
+	      <form name="sortby" action="display.py" method="get">
+		<input id="tmcheckbox" type="checkbox"><label for="tmcheckbox">TicketMaster</label>
+		<br>
+		<input id="tlcheckbox" type="checkbox"><label for="tlcheckbox">TicketLeap</label>
+		<br>
+		<input id="sgcheckbox" type="checkbox"><label for="sgcheckbox">SeatGeek</label>
+		<br>
+		<button type="button" class="button">Go</button>
+	      </form>
 	    </ul>
 	  </div>
 	</div>
+      </div>
+    </div>
+
+    <br><br>
+
+    <div class="row">
+      <div class="small-8 columns">
+	{% for event in events %}
+	<a href=event.link>
+	<div class="callout">
+	  <h3>event.company - event.name</h3>
+	  <hr>
+	  <p>event.date - event.price - event.seatnumber</p>
+	</div>
+	</a>
+	{% endfor %}
+      </div>
     </div>
 
     <script src="../static/js/vendor/jquery.js"></script>
