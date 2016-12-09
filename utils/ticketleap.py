@@ -2,6 +2,15 @@ import urllib2, json, requests
 from requests import auth
 from requests.auth import HTTPBasicAuth
 
+#28 Oct 2012 23:00:00
+def dateConversion(date):
+    m = {}
+    
+    year = date[7:11]
+
+    return year
+    
+
 #
 #    Input: Single word query
 #  Returns: List of events relevant to the query in New York and information separated in a list of entries
@@ -15,11 +24,13 @@ from requests.auth import HTTPBasicAuth
 #
 def ticketleap(query):
 
+    q = query.split(" ")[0]
+    
     # Final List
     fullList = []
 
     # Events
-    link = "http://public-api.ticketleap.com/events/by/search/"+query+"?key=2416970964522413&page_size=100"
+    link = "http://public-api.ticketleap.com/events/by/search/"+q+"?key=2416970964522413&page_size=100"
     u = urllib2.urlopen(link)
     response = u.read()
     data = json.loads(response)
@@ -51,6 +62,8 @@ def ticketleap(query):
             response = u.read()
             data = json.loads(response)
 
+            perfName = perfName.replace("_"," ")[:len(perfName)-4]
+            
             # Ticket Types
             for ticket_type in data['ticket_types']:
                 entry = [] #[organization, event, performance, url, time, ticket type, price, seat]
@@ -59,7 +72,7 @@ def ticketleap(query):
                 entry.append(eventName)
                 entry.append(perfName)
                 entry.append(data['url'])
-                entry.append(data['start_utc'])
+                entry.append(dateConversion(data['start_utc']))
                 entry.append(ticket_type['name'])
                 
                 if(ticket_type['price'] == "BUYER_DEFINED_PRICE"):
@@ -72,12 +85,11 @@ def ticketleap(query):
 
     return fullList
 
-def byPrice(query):
+def byPriceAsc(query):
 
-    orderedList = []
     fullList = ticketleap(query)
 
-    orderedList = sorted(fullList, key=lambda entry: round(float(entry[6],2)))
+    orderedList = sorted(fullList, key=lambda entry: round(float(entry[6]),2))
 
     for i in orderedList:
         if i[6] == 0:
@@ -85,9 +97,38 @@ def byPrice(query):
 
     return orderedList
 
+def byPriceDesc(query):
+
+    orderedList = byPriceAsc(query)
+    orderedList.reverse()
+
+    return orderedList
+
+def byDate(query):
+
+    fullList = ticketleap(query)
+    
+
+def byAlphaEvent(query):
+
+    fullList = ticketleap(query)
+    orderedList = sorted(fullList, key=lambda entry: entry[1])
+
+    return orderedList
+
+def byAlphaPerf(query):
+
+    fullList = ticketleap(query)
+    orderedList = sorted(fullList, key=lambda entry: entry[2])
+
+
+    
 ## TESTING ##
 
 def main():
-     print(byPrice("music"))
+    l = byAlphaEvent("music and things")
+
+    for i in l:
+        print(i[4])
 
 main()
