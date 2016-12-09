@@ -1,5 +1,5 @@
 CANOE Devlog
-by JSOJmohabir
+by JSONmohabir
 (Jason Mohabir, Noah Fichter, Julius Freya, Anya Keller)
 
 Format:
