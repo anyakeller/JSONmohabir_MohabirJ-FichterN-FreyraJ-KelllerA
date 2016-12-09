@@ -39,7 +39,7 @@
 
     <br><br><br>
 
-    <base href={{ currentUrl }}/>
+    <!--<base href={{ currentUrl }}/>-->
     
     <div class="row">
       <div class="small-6 columns">
@@ -47,7 +47,7 @@
 	<div class="row">
 	  <div class="dropdown-pane bottom" id="sort-dropdown" data-dropdown>
 	    <ul class="vertical dropdown menu" data-dropdown-menu>
-	      <form name="filter" action="display.py" method="get">
+	      <form name="filter" action="/output" method="POST">
 		<input type="radio" name="filterbuttons" value="priceAscending" id="filterPA">
 		<label for="filterPA">Price (Ascending)</label>
 		<br>
@@ -60,7 +60,7 @@
 		<input type="radio" name="filterbuttons" value="distDescending" id="filterDD">
 		<label for="filterDD">Seat Distance (Ascending)</label>
 		<br>
-		<button type="button" class="button">Go</button>
+		<input type="submit" class="button" name="sortbygo" value="Go">
 	      </form>
 	    </ul>
 	  </div>
@@ -71,14 +71,14 @@
 	<div class="row">
 	  <div class="dropdown-pane bottom" id="filter-dropdown" data-dropdown>
 	    <ul class="vertical dropdown menu" data-dropdown-menu>
-	      <form name="sortby" action="display.py" method="get">
+	      <form name="sortby" action="/output" method="POST">
 		<input id="tmcheckbox" type="checkbox"><label for="tmcheckbox">TicketMaster</label>
 		<br>
 		<input id="tlcheckbox" type="checkbox"><label for="tlcheckbox">TicketLeap</label>
 		<br>
 		<input id="sgcheckbox" type="checkbox"><label for="sgcheckbox">SeatGeek</label>
 		<br>
-		<button type="button" class="button">Go</button>
+		<input type="submit" class="button" name="filtergo" value="Go">
 	      </form>
 	    </ul>
 	  </div>

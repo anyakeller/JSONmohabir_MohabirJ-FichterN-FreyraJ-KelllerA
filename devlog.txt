@@ -72,3 +72,6 @@ juliusF -- 2016-12-08 24:50
 finished byPrice() functions for all existing api py files, byPrice orders entries by price in ascending order, giving
 entries without valid prices weights depending on the reason they do not have prices
 finished seatgeak api py file
+
+noahF -- 2016-12-09 13:30
+Working on flask app to connect html files. Going to use Jason and Julius' utils to display it the queried info in a certain order.

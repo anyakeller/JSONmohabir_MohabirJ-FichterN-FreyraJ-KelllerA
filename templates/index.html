@@ -39,17 +39,17 @@
     
     <br><br><br>
 
-    <form name="query" action="display.py" method="get">
+    <form name="query" action="/output" method="POST">
       <div class="row">
 	<div class="small-10 columns callout">
 	  <div class="row">
 	    <div class="small-12 columns">	
-              <input type="text" id="searchTerm" placeholder="Search"/>
+              <input type="text" name="searchTerm" placeholder="Search"/>
 	    </div>
 	  </div>
 	  <div class="row">
 	    <div class="small-2 columns">
-	      <input type="number" id="minPrice">
+	      <input type="number" name="minPrice">
 	    </div>
 	    <div class="small-8 columns">
 	      <div class="slider" data-slider data-initial-start="0" data-initial-end="1000" data-end="1000" data-step="5">
@@ -59,18 +59,18 @@
 	      </div>
 	    </div>
 	    <div class="small-2 columns">
-	      <input type="number" id="maxPrice">
+	      <input type="number" name="maxPrice">
 	    </div>
 	    <div class="small-12 columns">
 	      <label>
 		How many seats?
-		<input type="number" value="">
+		<input type="number" value="" name="numSeats">
 	      </label>
 	    </div>
 	    <div class="row">
 	      <div class="small-12 columns">
 		<div class="input-group-button">
-		  <input type="submit" class="button" id="go" value="Search">
+		  <input type="submit" class="button" name="go" value="Search">
 		</div>
 	      </div>
 	    </div>
