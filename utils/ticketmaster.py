@@ -1,4 +1,4 @@
-import urllib2, json, requests
+import urllib2, json, requests, dateutil
 from requests import auth
 from requests.auth import HTTPBasicAuth
 
@@ -9,6 +9,8 @@ from requests.auth import HTTPBasicAuth
 #           [organization, event, performance, url, time, ticket type, price, seat]
 #
 def ticketmaster(query):
+
+   #yq = query.split("")[0]
 
     fullList = []
 
@@ -70,12 +72,12 @@ def ticketmaster(query):
     return fullList
 
 
-def byPrice(query):
+def byPriceAsc(query):
 
     orderedList = []
     fullList = ticketmaster(query)
 
-    orderedList = sorted(fullList, key=lambda entry: float(entry[6]))
+    orderedList = sorted(fullList, key=lambda entry: round(float(entry[6]),2))
 
     for i in orderedList:
         if i[6] == 999999:
@@ -83,11 +85,54 @@ def byPrice(query):
 
     return orderedList
 
+
+def byPriceDes(query):
+
+    orderedList = []
+    fullList = ticketmaster(query)
+
+    orderedList = sorted(fullList, key=lambda entry: round(float(entry[6]),2))
+
+    for i in orderedList:
+        if i[6] == 999999:
+            i[6] = "N/A: Price not Defined"
+
+    return orderedList
+
+def byAlphaEvent(query):
+
+    orderedList = []
+    fullList = ticketmaster(query)
+
+    orderedList = sorted(fullList, key=lambda entry: round(float(entry[6]),2))
+
+    for i in orderedList:
+        if i[6] == 999999:
+            i[6] = "N/A: Price not Defined"
+
+    return orderedList
+
+
+def byAlphaPerf(query):
+
+    orderedList = []
+    fullList = ticketmaster(query)
+
+    orderedList = sorted(fullList, key=lambda entry: round(float(entry[6]),2), reverse=True)
+
+    for i in orderedList:
+        if i[6] == 999999:
+            i[6] = "N/A: Price not Defined"
+
+    return orderedList
+
+
 ## TESTING ##
 
 def main():
-     listF = byPrice("music")
-     for i in listF:
-         print(i[6])
+    listF = byPriceDes("music")
+    for i in listF:
+        print(i[6])
+
 
 main()
