@@ -76,3 +76,5 @@ finished byPrice() functions for all existing api py files, byPrice orders entri
 entries without valid prices weights depending on the reason they do not have prices
 finished seatgeak api py file
 
+juliusF -- 2016-12-09 13:05
+working on sorting in ticketleap py file, converting dates into standardized format
