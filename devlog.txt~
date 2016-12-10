@@ -1,0 +1,81 @@
+
+CANOE Devlog
+by JSONmohabir
+(Jason Mohabir, Noah Fichter, Julius Freya, Anya Keller)
+
+Format:
+firstL -- TIMESTAMP\n
+e.g.: topherM -- 1999-12-31 23:59
+
+DEVLOG
+anyaK -- 2016-12-03 11:15
+Added DEVLOG and setup .gitignore
+
+noahF -- 2016-12-04 10:30
+Made sitemap and page mockups for design doc
+
+juliusF -- 2016-12-04 11:30
+Made component map and updated component list for design doc
+
+noahF -- 2016-12-04 13:20
+Began testing API 0 (SeatGeek)
+
+juliusF -- 2016-12-05 13:05
+Grabbed API keys, updated design doc with relevant keys and secrets
+
+noahF -- 2016-12-05 20:00
+Finished testing API 0 (SeatGeek)
+
+juliusF -- 2016-12-05 22:30
+Finished testing APIs 3 and 4 (Ticketleap, Ticketmaster)
+
+jasonM -- 2016-12-05 22:30
+Began testing API 1 (Universe)
+
+jasonM -- 2016-12-05 23:30
+Finished testing API 1 (Universe)
+
+juliusF -- 2016-12-06 14:05
+made utils folder, started ticketleap utils py file
+
+juliusF -- 2016-12-06 22:40
+wrote basic ticketleap py file, will include sorting in the future
+current functionality:
+
+	Input: Single word query
+      Returns: List of events relevant to the query in New York and information separated in a list of entries
+
+      Each entry is grouped by the most general shared information
+       - Tickets of similar organization are grouped together
+       - Tickets of similar events are grouped together
+       - Tickets of similar performances are grouped together and separated by ticket type
+
+noahF -- 2016-12-06 13:20
+Continued working on index.html
+
+noahF -- 2016-12-07 13:20
+Finished index.html, working on output page next and then working on python file that transitions from index to output
+
+noahF -- 2016-12-07 13:50
+Began output.html, so far no jinja
+
+juliusF -- 2016-12-07 24:30
+wrote basic ticketmaster py file, will include sorting in the future
+current functionality:
+
+	Input: Single word query
+      Returns: List of events relevant to the query in New York and information separated in a list of entries
+
+noahF -- 2016-12-08 20:20
+Finished output.html, jinja needs to be linked through flask app
+
+jasonM -- 2016-12-08 22:27
+Recieved responses from Universe and Ticket City API requests for keys. Both have not provided the CLIENT_ID and CLIENT_SERVICE keys. Began research on alternative APIs and responded to both API managers for second attempt. 
+
+juliusF -- 2016-12-08 24:50
+finished byPrice() functions for all existing api py files, byPrice orders entries by price in ascending order, giving
+entries without valid prices weights depending on the reason they do not have prices
+finished seatgeak api py file
+
+juliusF -- 2016-12-09 13:05
+working on sorting in ticketleap py file, converting dates into standardized format
