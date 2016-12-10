@@ -42,7 +42,7 @@ def ticketmaster(query):
             for p in i['priceRanges']:
                 entry = []
                 ticket_type = p['type']
-                price = p['min']
+                price = round(float(p['min']),2)
 
                 entry.append(orgName)
                 entry.append(eventName)
@@ -126,11 +126,24 @@ def byAlphaPerf(query):
 
     return orderedList
 
+def priceRange(olist,minP,maxP):
+
+    flist = olist
+    orderedList = []
+    
+    for i in flist:
+        if i[6] != "N/A: Price notDefined":
+            if i[6] >= minP and i[6] <= maxP:
+                orderedList.append(i)
+        else:
+            orderedList.append(i)
+
+    return orderedList
 
 ## TESTING ##
 
 def main():
-    listF = byPriceDes("music")
+    listF = priceRange(byPriceAsc("music"),20,60)
     for i in listF:
         print(i[6])
 

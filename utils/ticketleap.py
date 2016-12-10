@@ -76,9 +76,9 @@ def ticketleap(query):
                 entry.append(ticket_type['name'])
                 
                 if(ticket_type['price'] == "BUYER_DEFINED_PRICE"):
-                    entry.append(0) # let prices the buyer can define float to the top
+                    entry.append("N/A: Price Defined by Buyer") 
                 else:
-                    entry.append(ticket_type['price'])
+                    entry.append(round(float(ticket_type['price']),2))
                 entry.append("N/A")
 
                 fullList.append(entry)
@@ -88,12 +88,16 @@ def ticketleap(query):
 def byPriceAsc(query):
 
     fullList = ticketleap(query)
-
+ 
+    for i in fullList:
+        if i[6] == "N/A: Price Defined by Buyer":
+            i[6] = 0.00 # let prices the buyer can define float to the top
+    
     orderedList = sorted(fullList, key=lambda entry: round(float(entry[6]),2))
 
     for i in orderedList:
-        if i[6] == 0:
-            i[6] = "N/A: Price Defined by Buyer"
+        if i[6] == 0.00:
+            i[6] = "N/A: Price Defined by Buyer" # switch back for proper display
 
     return orderedList
 
@@ -122,13 +126,26 @@ def byAlphaPerf(query):
     orderedList = sorted(fullList, key=lambda entry: entry[2])
 
 
+def priceRange(olist,minP,maxP):
+
+    flist = olist
+    orderedList = []
+    
+    for i in flist:
+        if i[6] != "N/A: Price Defined by Buyer":
+            if i[6] >= minP and i[6] <= maxP:
+                orderedList.append(i)
+        else:
+            orderedList.append(i)
+
+    return orderedList
     
 ## TESTING ##
 
 def main():
-    l = byAlphaEvent("music and things")
+    l = priceRange(byPriceAsc("music and things"),10,140)
 
     for i in l:
-        print(i[4])
+        print(i[6])
 
 main()
