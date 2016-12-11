@@ -76,20 +76,6 @@ def ticketleap(query):
 
     return fullList
 
-def priceRange(olist,minP,maxP):
-
-    flist = olist
-    orderedList = []
-    
-    for i in flist:
-        if i[6] != "N/A: Price Defined by Buyer":
-            if i[6] >= minP and i[6] <= maxP:
-                orderedList.append(i)
-        else:
-            orderedList.append(i)
-
-    return orderedList
-    
 ## TESTING ##
 
 def main():
@@ -97,7 +83,6 @@ def main():
     orderedList = sorts.byDateAsc(fullList)
     priceRange = sorts.priceRange(orderedList,10,140)
     for i in priceRange:
-        print i[4]
-        # print(i[1] + " | Price:" + str(i[6]) + " | Time:" + str(i[4]) )
+        print(i[1] + " | Price:" + str(i[6]) + " | Time:" + str(i[4]) )
 
 main()
