@@ -66,16 +66,8 @@ def main():
         #print(i[1])
 
     fullList = seatgeek("music")
-
-    l = sorts.priceRange(sorts.byPriceAsc(fullList),10,140)
-    for i in l:
-        print(i[6])
-
-    fullList = seatgeek("music")
     orderList = sorts.byPriceAsc(fullList)
     for i in orderList:
         print(i[1] + " | Price:" + str(i[6]) )
-
-
 
 main()

@@ -1,16 +1,6 @@
 import urllib2, json, requests,dateutil.parser, sorts
 from requests import auth
 from requests.auth import HTTPBasicAuth
-
-#28 Oct 2012 23:00:00
-def dateConversion(date):
-    m = {}
-    
-    year = date[7:11]
-
-    return year
-    
-
 #
 #    Input: Single word query
 #  Returns: List of events relevant to the query in New York and information separated in a list of entries
@@ -72,7 +62,8 @@ def ticketleap(query):
                 entry.append(eventName)
                 entry.append(perfName)
                 entry.append(data['url'])
-                entry.append(dateConversion(data['start_utc']))
+                time = data['start_utc']
+                entry.append(dateutil.parser.parse(time))
                 entry.append(ticket_type['name'])
                 
                 if(ticket_type['price'] == "BUYER_DEFINED_PRICE"):
@@ -84,47 +75,6 @@ def ticketleap(query):
                 fullList.append(entry)
 
     return fullList
-
-def byPriceAsc(query):
-
-    fullList = ticketleap(query)
- 
-    for i in fullList:
-        if i[6] == "N/A: Price Defined by Buyer":
-            i[6] = 0.00 # let prices the buyer can define float to the top
-    
-    orderedList = sorted(fullList, key=lambda entry: round(float(entry[6]),2))
-
-    for i in orderedList:
-        if i[6] == 0.00:
-            i[6] = "N/A: Price Defined by Buyer" # switch back for proper display
-
-    return orderedList
-
-def byPriceDesc(query):
-
-    orderedList = byPriceAsc(query)
-    orderedList.reverse()
-
-    return orderedList
-
-def byDate(query):
-
-    fullList = ticketleap(query)
-    
-
-def byAlphaEvent(query):
-
-    fullList = ticketleap(query)
-    orderedList = sorted(fullList, key=lambda entry: entry[1])
-
-    return orderedList
-
-def byAlphaPerf(query):
-
-    fullList = ticketleap(query)
-    orderedList = sorted(fullList, key=lambda entry: entry[2])
-
 
 def priceRange(olist,minP,maxP):
 
@@ -144,10 +94,10 @@ def priceRange(olist,minP,maxP):
 
 def main():
     fullList = ticketleap("music and things")
-    l = priceRange(byPriceAsc("music and things"),10,140)
+    orderedList = sorts.byDateAsc(fullList)
+    priceRange = sorts.priceRange(orderedList,10,140)
+    for i in priceRange:
+        print i[4]
+        # print(i[1] + " | Price:" + str(i[6]) + " | Time:" + str(i[4]) )
 
-    orderedList = sorts.byPriceAsc(fullList)
-    l = priceRange(orderedList,10,140)
-    for i in l:
-        print(i[6])
 main()

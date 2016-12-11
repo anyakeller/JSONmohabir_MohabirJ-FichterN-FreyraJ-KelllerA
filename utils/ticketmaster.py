@@ -1,4 +1,4 @@
-import urllib2, json, requests, dateutil
+import urllib2, json, requests, dateutil.parser, sorts
 from requests import auth
 from requests.auth import HTTPBasicAuth
 
@@ -27,7 +27,6 @@ def ticketmaster(query):
         perfName = i['name']
         url = i['url']
         time = i['dates']['start']['localDate']
-
         if(i['dates']['start']['timeTBA']):
             time += " Time TBA"
         elif(i['dates']['start']['noSpecificTime']):
@@ -48,7 +47,7 @@ def ticketmaster(query):
                 entry.append(eventName)
                 entry.append(perfName)
                 entry.append(url)
-                entry.append(time)
+                entry.append(dateutil.parser.parse(time))
                 entry.append(ticket_type)
                 entry.append(price)
                 entry.append(seat)
@@ -143,9 +142,11 @@ def priceRange(olist,minP,maxP):
 ## TESTING ##
 
 def main():
-    listF = priceRange(byPriceAsc("music"),20,60)
-    for i in listF:
-        print(i[6])
+    fullList = ticketmaster("music")
+    orderedList = sorts.byDateAsc(fullList)
+    priceRange = sorts.priceRange(orderedList,10,140)
+    for i in priceRange:
+        print(i[1] + " | Price:" + str(i[6]) + " | Time:" + str(i[4]) )
 
 
 main()
