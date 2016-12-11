@@ -1,4 +1,4 @@
-import urllib2, json, requests,dateutil.parser, sorts
+import urllib2, json, requests
 from requests import auth
 from requests.auth import HTTPBasicAuth
 
@@ -143,11 +143,9 @@ def priceRange(olist,minP,maxP):
 ## TESTING ##
 
 def main():
-    fullList = ticketleap("music and things")
     l = priceRange(byPriceAsc("music and things"),10,140)
 
-    orderedList = sorts.byPriceAsc(fullList)
-    l = priceRange(orderedList,10,140)
     for i in l:
         print(i[6])
+
 main()

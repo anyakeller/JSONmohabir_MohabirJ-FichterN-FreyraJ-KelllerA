@@ -1,4 +1,4 @@
-import urllib2, json, requests,dateutil.parser, sorts
+import urllib2, json, requests,dateutil.parser
 from requests import auth
 from requests.auth import HTTPBasicAuth
 
@@ -58,6 +58,67 @@ def seatgeek(query):
     return fullList
 
 
+def byPriceAsc(query):
+    fullList = seatgeek(query)
+    orderedList = sorted(fullList, key=lambda entry: float(entry[6]))
+    
+    for i in orderedList:
+        if i[6] == 999999:
+            i[6] = "N/A: Price not Defined"
+    
+    return orderedList
+
+def byPriceDes(query):
+    fullList = seatgeek(query)
+    orderedList = sorted(fullList, key=lambda entry: float(entry[6]),reverse=True)
+    
+    for i in orderedList:
+        if i[6] == 999999:
+            i[6] = "N/A: Price not Defined"
+    
+    return orderedList
+
+def byDateAsc(query):
+ 
+   fullList = seatgeek(query)
+   orderedList = sorted(fullList, key=lambda entry: entry[4])
+   return orderedList
+
+def byDateDes(query):
+ 
+   fullList = seatgeek(query)
+   orderedList = sorted(fullList, key=lambda entry: entry[4],reverse=True)
+   return orderedList
+
+def byAlphaEventAsc(query):
+
+    fullList = seatgeek(query)
+    orderedList = sorted(fullList, key=lambda entry: entry[1])
+
+    return orderedList
+
+def byAlphaEventDes(query):
+
+    fullList = seatgeek(query)
+    orderedList = sorted(fullList, key=lambda entry: entry[1],reverse=True)
+
+    return orderedList
+
+def priceRange(oList,minP,maxP):
+
+    fullList = oList
+    orderedList = []
+
+    for i in fullList:
+        if i[6] != "N/A: Price Defined by Buyer":
+            if i[6] >= minP and i[6] <= maxP:
+                orderedList.append(i)
+        else:
+            orderedList.append(i)
+
+    return orderedList
+
+
 ## TESTING ##
 
 def main():
@@ -65,17 +126,9 @@ def main():
     #for i in listF:
         #print(i[1])
 
-    fullList = seatgeek("music")
-
-    l = sorts.priceRange(sorts.byPriceAsc(fullList),10,140)
+    l = priceRange(byPriceAsc("music"),10,140)
     for i in l:
         print(i[6])
-
-    fullList = seatgeek("music")
-    orderList = sorts.byPriceAsc(fullList)
-    for i in orderList:
-        print(i[1] + " | Price:" + str(i[6]) )
-
 
 
 main()
