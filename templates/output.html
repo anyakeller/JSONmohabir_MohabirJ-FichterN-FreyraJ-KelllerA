@@ -22,14 +22,22 @@
 	<div class="top=bar-right">
 	  <div class="row">
 	    <div class="small-8 columns">
-	      <ul class="menu">
-		<li><input type="search" placeholder="Quick Search"></li>
-		<li><button type="button" class="button">Search</button></li>
-	      </ul>
+	      <form name="quicksearch" action="/output" method="POST">
+		<ul class="menu">
+		  <li><input type="search" name="quicksearchTerm" placeholder="Quick Search"></li>
+		  <li><button type="submit" class="button" name="quicksearchsubmit">Search</button></li>
+		</ul>
+	      </form>
 	    </div>
 	    <div class="small-2 columns">
 	      <ul class="menu">
-		<li><a href="login.html">Log In</a></li>
+		<!-- add Jinja to only show Log In button if user not logged in
+		  this is only if we decide to add user functionality-->
+		<form name="login" action="/login" method="POST">
+		  <ul class="menu">
+		    <li><button type="submit" class="button" name="loginsubmit">Log In</button></li>
+		  </ul>
+		</form>
 	      </ul>
 	    </div>
 	  </div>
