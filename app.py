@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-import utils, sqlite3, re
-#import utils., utils.story_manager
+import utils, sqlite3
+#from utils import seatgeek, ticketleap, ticketmaster
 
 app = Flask(__name__)
 
@@ -13,10 +13,19 @@ def index():
 @app.route("/output", methods=["POST"])
 def output():
     eventList = []
-    if (request.form["searchTerm"]):
-        return render_template("output.html",events=eventList)
+    if "searchTerm" in request.form:
+        eventList = []
+        #do stuff to eventList (waiting on utils)
+    elif "quicksearchTerm" in request.form:
+        eventList = []
+        #do stuff to eventList (waiting on utils)
     else:
-        return render_template("output.html",events=[])
+        eventList = []
+    return render_template("output.html",events=eventList)
+
+@app.route("/login", methods=["POST"])
+def login():
+    return None
 
 if __name__ == "__main__":
     app.debug = True
