@@ -1,4 +1,4 @@
- ![CANOE](https://github.com/anyakeller/JSONmohabir_MohabirJ-FichterN-FreyraJ-KelllerA/blob/master/logo.png "The original boat png credit goes to https://thenounproject.com/term/canoe/64735/ thanks!  We added the logo text.") 
+ ![CANOE](https://github.com/anyakeller/JSONmohabir_MohabirJ-FichterN-FreyraJ-KelllerA/blob/master/static/img/logo.png "The original boat png credit goes to https://thenounproject.com/term/canoe/64735/ thanks!  We added the logo text.") 
 by JSONMohabir
 ===============================================
 - [About] (#about)
@@ -10,3 +10,11 @@ Canoe [kæn-o-e], our project, is a website that utilizes 5 APIs to help the use
 
 Usage
 ----------
+To run website from terminal:
+- make sure flask is installed
+- make sure python-dateutil is installed
+run:
+'''
+$python app.py
+'''
+The website should be up on 27.0.0.1:5000
