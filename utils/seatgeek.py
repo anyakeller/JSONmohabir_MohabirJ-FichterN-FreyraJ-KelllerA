@@ -12,7 +12,7 @@ def seatgeek(query):
 
     fullList = []
 
-    link = "https://api.seatgeek.com/2/events?q="+query.replace(" ","+")+"&venue.state=NY"
+    link = "https://api.seatgeek.com/2/events?q="+query.replace(" ","+")+"&venue.state=NY&client_id=NjM1OTI1MHwxNDgwOTYzNDk4"
     u = urllib2.urlopen(link)
     response = u.read()
     data = json.loads(response)
