@@ -1,6 +1,0 @@
-# Compilation of Master Sorted Lists Module
-
-import sorts,ticketleap,ticketmaster,seatgeek
-
-def byPriceAsc(query):
-    

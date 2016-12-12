@@ -52,7 +52,7 @@ def seatgeek(query):
             entry.append(ticket_type)
             entry.append(price)
             entry.append(seat)
-
+            entry.append("Seat Geek")
             fullList.append(entry)
 
     return fullList

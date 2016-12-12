@@ -51,7 +51,7 @@ def ticketmaster(query):
                 entry.append(ticket_type)
                 entry.append(price)
                 entry.append(seat)
-
+                entry.append("Ticket Master")
                 fullList.append(entry)
                 
         else:

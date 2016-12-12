@@ -71,7 +71,7 @@ def ticketleap(query):
                 else:
                     entry.append(round(float(ticket_type['price']),2))
                 entry.append("N/A")
-
+                entry.append("Ticket Leap")
                 fullList.append(entry)
 
     return fullList
