@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-import utils, sqlite3
-#from utils import seatgeek, ticketleap, ticketmaster
+import sqlite3
+import utils.master
+import utils.ticketleap
 
 app = Flask(__name__)
 
@@ -14,11 +15,10 @@ def index():
 def output():
     eventList = []
     if "searchTerm" in request.form:
-        eventList = []
-        #do stuff to eventList (waiting on utils)
+        eventList = utils.ticketleap.ticketleap(request.form["searchTerm"])
+        print eventList
     elif "quicksearchTerm" in request.form:
-        eventList = []
-        #do stuff to eventList (waiting on utils)
+        eventList = utils.master.byPriceAsc(request.form["quicksearchTerm"])
     else:
         eventList = []
     return render_template("output.html",events=eventList)

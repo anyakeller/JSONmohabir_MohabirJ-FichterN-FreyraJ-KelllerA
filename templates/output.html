@@ -99,11 +99,11 @@
     <div class="row">
       <div class="small-8 columns">
 	{% for event in events %}
-	<a href=event.link>
+	<a href=event[loop.index3]>
 	<div class="callout">
-	  <h3>event.company - event.name</h3>
+	  <h3>event[loop.index0] - event[loop.index1] - event[loop.index2]</h3>
 	  <hr>
-	  <p>event.date - event.price - event.seatnumber</p>
+	  <p>event[loop.index4] - event[loop.index5] - event[loop.index6] - event[loop.index7]</p>
 	</div>
 	</a>
 	{% endfor %}
