@@ -2,7 +2,7 @@
 
 import sorts,ticketleap,ticketmaster,seatgeek
 
-def byPriceAsc(query):
+def byPriceAsc(query,minP,maxP):
 
     leapList = ticketleap.ticketleap(query)
     masterList = ticketmaster.ticketmaster(query)
@@ -12,10 +12,10 @@ def byPriceAsc(query):
 
     fullList = sorts.byPriceAsc(fullList)
 
-    return fullList
+    return sorts.priceRange(fullList,minP,maxP)
 
 
-def byPriceDes(query):
+def byPriceDes(query,minP,maxP):
 
     leapList = ticketleap.ticketleap(query)
     masterList = ticketmaster.ticketmaster(query)
@@ -25,10 +25,10 @@ def byPriceDes(query):
 
     fullList = sorts.byPriceDes(fullList)
 
-    return fullList
+    return sorts.priceRange(fullList,minP,maxP)
 
 
-def byDateAsc(query):
+def byDateAsc(query,minP,maxP):
 
     leapList = ticketleap.ticketleap(query)
     masterList = ticketmaster.ticketmaster(query)
@@ -38,10 +38,10 @@ def byDateAsc(query):
 
     fullList = sorts.byDateAsc(fullList)
 
-    return fullList
+    return sorts.priceRange(fullList,minP,maxP)
 
 
-def byDateDes(query):
+def byDateDes(query,minP,maxP):
 
     leapList = ticketleap.ticketleap(query)
     masterList = ticketmaster.ticketmaster(query)
@@ -51,10 +51,10 @@ def byDateDes(query):
 
     fullList = sorts.byDateDes(fullList)
 
-    return fullList
+    return sorts.priceRange(fullList,minP,maxP)
 
 
-def byAlphaEventAsc(query):
+def byAlphaEventAsc(query,minP,maxP):
 
     leapList = ticketleap.ticketleap(query)
     masterList = ticketmaster.ticketmaster(query)
@@ -64,10 +64,10 @@ def byAlphaEventAsc(query):
 
     fullList = sorts.byAlphaEventAsc(fullList)
 
-    return fullList
+    return sorts.priceRange(fullList,minP,maxP)
 
 
-def byAlphaEventDes(query):
+def byAlphaEventDes(query,minP,maxP):
 
     leapList = ticketleap.ticketleap(query)
     masterList = ticketmaster.ticketmaster(query)
@@ -77,27 +77,14 @@ def byAlphaEventDes(query):
 
     fullList = sorts.byAlphaEventDes(fullList)
 
-    return fullList
-
-
-def byPriceRange(query,minP,maxP):
-
-    leapList = ticketleap.ticketleap(query)
-    masterList = ticketmaster.ticketmaster(query)
-    geekList = seatgeek.seatgeek(query)
-
-    fullList = leapList + masterList + geekList
-
-    fullList = sorts.priceRange(fullList,minP,maxP)
-
-    return fullList
+    return sorts.priceRange(fullList,minP,maxP)
 
 ## Testing ##
 
-# def main():
-#     listF = byPriceRange("music",100,300)
+def main():
+    listF = byPriceAsc("music",0,900)
 
-#     for i in listF:
-#         print(i[6])
+    for i in listF:
+        print(i[6])
 
-# main()
+main()

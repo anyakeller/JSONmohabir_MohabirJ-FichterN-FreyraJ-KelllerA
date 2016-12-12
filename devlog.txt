@@ -83,7 +83,7 @@ working on sorting in ticketleap py file, converting dates into standardized for
 noahF -- 2016-12-09 13:20
 Began working on flask app.py
 
-juliusF -- 2016-12-10 10:40
+juliusF -- 2016-12-10 22:40
 finished priceRange() functions for ticketleap and ticketmaster, resurrected devlog after lost to some weird merge errors, will work on date conversion later
 
 noahF -- 2016-12-11 12:00
@@ -92,3 +92,7 @@ Fixed forms in html files so each can be used separately, prepared for utils int
 juliusF -- 2016-12-12 1:30
 finished master.py, will restructure into one function with a switchboard for each type of sort for all lists
 date conversion does not currently work as some times are incompatible and incomparable to others due to time zone awareness
+
+juliusF -- 2016-12-13 13:05
+added seatgeek client id in api call
+updated master.py with priceRange for all functions
