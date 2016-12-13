@@ -111,3 +111,6 @@ ticketmaster debugging
      minor fix with price display and respective changes in sorts.py to reflect change with price fix
      fixed bug where datetime obj was being compared to unicode
      
+juliusF -- 2016-12-12 23:45
+datetime comparison works regardless of format (unaware vs naive)
+    basically converted the datetime objects into strings and compared those instead of comparing different data types
