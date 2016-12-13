@@ -81,6 +81,7 @@ def byAlphaEventDes(query,minP,maxP):
 
 ## Testing ##
 
+'''
 def main():
     listF = byPriceAsc("music",0,900)
 
@@ -88,3 +89,4 @@ def main():
         print(i[6])
 
 main()
+'''
