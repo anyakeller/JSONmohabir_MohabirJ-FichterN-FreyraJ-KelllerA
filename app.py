@@ -17,11 +17,12 @@ def index():
 def output():
     eventList = []
     if "searchTerm" in request.form:
-        eventList = utils.master.byPriceAsc(request.form["searchTerm"],int(request.form["minPrice"]),int(request.form["maxPrice"]))
-        if not eventList:
+        if request.form["searchTerm"] == "":
             eventList = [['No events found. Please try again.','','','#','','','','']]
-    elif "quicksearchTerm" in request.form:
-        eventList = utils.master.byPriceAsc(request.form["quicksearchTerm"],0,1000)
+        else:
+            eventList = utils.master.byPriceAsc(request.form["searchTerm"],int(request.form["minPrice"]),int(request.form["maxPrice"]))
+            if not eventList:
+                eventList = [['No events found. Please try again.','','','#','','','','']]
     else:
         eventList = [['No events found. Please try again.','','','#','','','','']]
     return render_template("output.html",events=eventList)

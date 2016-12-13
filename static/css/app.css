@@ -25,3 +25,8 @@ body {
 .slider-handle {
     background-color: #80CED7;
 }
+
+.ftr {
+    position: fixed;
+    bottom: 0;
+}
