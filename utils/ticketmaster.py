@@ -39,9 +39,10 @@ def ticketmaster(query):
         ticket_type = "N/A"
         price = "N/A"
         seat = "N/A"
+        entry = []
+        
         if('priceRanges' in i):
             for p in i['priceRanges']:
-                entry = []
                 ticket_type = p['type']
                 price = round(float(p['min']),2)
 

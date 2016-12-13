@@ -10,9 +10,9 @@ def byPriceAsc(query,minP,maxP):
 
     fullList = leapList + masterList + geekList
 
-    fullList = sorts.byPriceAsc(fullList)
+    fullList = utils.sorts.byPriceAsc(fullList)
 
-    return sorts.priceRange(fullList,minP,maxP)
+    return utils.sorts.priceRange(fullList,minP,maxP)
 
 
 def byPriceDes(query,minP,maxP):
@@ -23,9 +23,9 @@ def byPriceDes(query,minP,maxP):
 
     fullList = leapList + masterList + geekList
 
-    fullList = sorts.byPriceDes(fullList)
+    fullList = utils.sorts.byPriceDes(fullList)
 
-    return sorts.priceRange(fullList,minP,maxP)
+    return utils.sorts.priceRange(fullList,minP,maxP)
 
 
 def byDateAsc(query,minP,maxP):
@@ -38,7 +38,7 @@ def byDateAsc(query,minP,maxP):
 
     fullList = utils.sorts.byDateAsc(fullList)
 
-    return sorts.priceRange(fullList,minP,maxP)
+    return utils.sorts.priceRange(fullList,minP,maxP)
 
 
 def byDateDes(query,minP,maxP):
@@ -49,9 +49,9 @@ def byDateDes(query,minP,maxP):
 
     fullList = leapList + masterList + geekList
 
-    fullList = sorts.byDateDes(fullList)
+    fullList = utils.sorts.byDateDes(fullList)
 
-    return sorts.priceRange(fullList,minP,maxP)
+    return utils.sorts.priceRange(fullList,minP,maxP)
 
 
 def byAlphaEventAsc(query,minP,maxP):
@@ -62,9 +62,9 @@ def byAlphaEventAsc(query,minP,maxP):
 
     fullList = leapList + masterList + geekList
 
-    fullList = sorts.byAlphaEventAsc(fullList)
+    fullList = utils.sorts.byAlphaEventAsc(fullList)
 
-    return sorts.priceRange(fullList,minP,maxP)
+    return utils.sorts.priceRange(fullList,minP,maxP)
 
 
 def byAlphaEventDes(query,minP,maxP):
@@ -75,12 +75,13 @@ def byAlphaEventDes(query,minP,maxP):
 
     fullList = leapList + masterList + geekList
 
-    fullList = sorts.byAlphaEventDes(fullList)
+    fullList = utils.sorts.byAlphaEventDes(fullList)
 
-    return sorts.priceRange(fullList,minP,maxP)
+    return utils.sorts.priceRange(fullList,minP,maxP)
 
 ## Testing ##
 
+'''
 def main():
     listF = byPriceAsc("music",0,900)
 
@@ -88,3 +89,4 @@ def main():
         print(i[6])
 
 main()
+'''
