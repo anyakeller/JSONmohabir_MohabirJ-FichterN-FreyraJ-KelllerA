@@ -70,6 +70,7 @@ def ticketmaster(query):
             entry.append(ticket_type)
             entry.append("N/A: Price not Defined")
             entry.append(seat)
+            entry.append("Ticket Master")
 
             fullList.append(entry)
 
