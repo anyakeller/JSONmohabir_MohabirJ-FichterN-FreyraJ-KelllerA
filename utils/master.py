@@ -30,11 +30,11 @@ def byPriceDes(query,minP,maxP):
 
 def byDateAsc(query,minP,maxP):
 
-    leapList = ticketleap.ticketleap(query)
-    masterList = ticketmaster.ticketmaster(query)
-    geekList = seatgeek.seatgeek(query)
+    leapList = utils.ticketleap.ticketleap(query)
+    masterList = utils.ticketmaster.ticketmaster(query)
+    geekList = utils.seatgeek.seatgeek(query)
 
-    fullList = utils.leapList + masterList + geekList
+    fullList = leapList + masterList + geekList
 
     fullList = utils.sorts.byDateAsc(fullList)
 

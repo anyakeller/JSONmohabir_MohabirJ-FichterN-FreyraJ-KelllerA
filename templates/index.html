@@ -11,7 +11,7 @@
   <body>
     <div class="row logo">
       <div class="small-12 columns">
-	<img class="topbarimg" id="topimg" src="../static/img/logo.png">
+	<a href="/"><img class="topbarimg" id="topimg" src="../static/img/logo.png"></a>
       </div>
     </div>
     
@@ -57,7 +57,9 @@
 	  </div>
 	  <div class="row">
 	    <div class="small-2 columns">
-	      <input type="number" name="minPrice" id="minPrice">
+	      <label>Minimum Price
+		<input type="number" name="minPrice" id="minPrice">
+	      </label>
 	    </div>
 	    <div class="small-8 columns">
 	      <div class="slider" data-slider data-initial-start="0" data-initial-end="1000" data-end="1000" data-step="5">
@@ -67,7 +69,9 @@
 	      </div>
 	    </div>
 	    <div class="small-2 columns">
-	      <input type="number" name="maxPrice" id="maxPrice">
+	      <label>Maximum Price
+		<input type="number" name="maxPrice" id="maxPrice">
+	      </label>
 	    </div>
 	    <div class="small-12 columns">
 	      <label>

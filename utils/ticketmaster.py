@@ -74,7 +74,7 @@ def ticketmaster(query):
     return fullList
 
 ## TESTING ##
-
+'''
 def main():
     fullList = ticketmaster("new york")
     orderedList = sorts.byDateAsc(fullList)
@@ -84,3 +84,4 @@ def main():
 
 
 main()
+'''
