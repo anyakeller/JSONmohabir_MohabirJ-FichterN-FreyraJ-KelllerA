@@ -1,12 +1,12 @@
 # Compilation of Master Sorted Lists Module
 
-import sorts,ticketleap,ticketmaster,seatgeek
+import utils.sorts,utils.ticketleap,utils.ticketmaster,utils.seatgeek
 
 def byPriceAsc(query,minP,maxP):
 
-    leapList = ticketleap.ticketleap(query)
-    masterList = ticketmaster.ticketmaster(query)
-    geekList = seatgeek.seatgeek(query)
+    leapList = utils.ticketleap.ticketleap(query)
+    masterList = utils.ticketmaster.ticketmaster(query)
+    geekList = utils.seatgeek.seatgeek(query)
 
     fullList = leapList + masterList + geekList
 
@@ -17,9 +17,9 @@ def byPriceAsc(query,minP,maxP):
 
 def byPriceDes(query,minP,maxP):
 
-    leapList = ticketleap.ticketleap(query)
-    masterList = ticketmaster.ticketmaster(query)
-    geekList = seatgeek.seatgeek(query)
+    leapList = utils.ticketleap.ticketleap(query)
+    masterList = utils.ticketmaster.ticketmaster(query)
+    geekList = utils.seatgeek.seatgeek(query)
 
     fullList = leapList + masterList + geekList
 
@@ -34,18 +34,18 @@ def byDateAsc(query,minP,maxP):
     masterList = ticketmaster.ticketmaster(query)
     geekList = seatgeek.seatgeek(query)
 
-    fullList = leapList + masterList + geekList
+    fullList = utils.leapList + masterList + geekList
 
-    fullList = sorts.byDateAsc(fullList)
+    fullList = utils.sorts.byDateAsc(fullList)
 
     return sorts.priceRange(fullList,minP,maxP)
 
 
 def byDateDes(query,minP,maxP):
 
-    leapList = ticketleap.ticketleap(query)
-    masterList = ticketmaster.ticketmaster(query)
-    geekList = seatgeek.seatgeek(query)
+    leapList = utils.ticketleap.ticketleap(query)
+    masterList = utils.ticketmaster.ticketmaster(query)
+    geekList = utils.seatgeek.seatgeek(query)
 
     fullList = leapList + masterList + geekList
 
@@ -56,9 +56,9 @@ def byDateDes(query,minP,maxP):
 
 def byAlphaEventAsc(query,minP,maxP):
 
-    leapList = ticketleap.ticketleap(query)
-    masterList = ticketmaster.ticketmaster(query)
-    geekList = seatgeek.seatgeek(query)
+    leapList = utils.ticketleap.ticketleap(query)
+    masterList = utils.ticketmaster.ticketmaster(query)
+    geekList = utils.seatgeek.seatgeek(query)
 
     fullList = leapList + masterList + geekList
 
@@ -69,9 +69,9 @@ def byAlphaEventAsc(query,minP,maxP):
 
 def byAlphaEventDes(query,minP,maxP):
 
-    leapList = ticketleap.ticketleap(query)
-    masterList = ticketmaster.ticketmaster(query)
-    geekList = seatgeek.seatgeek(query)
+    leapList = utils.ticketleap.ticketleap(query)
+    masterList = utils.ticketmaster.ticketmaster(query)
+    geekList = utils.seatgeek.seatgeek(query)
 
     fullList = leapList + masterList + geekList
 
