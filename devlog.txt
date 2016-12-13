@@ -93,7 +93,7 @@ juliusF -- 2016-12-12 1:30
 finished master.py, will restructure into one function with a switchboard for each type of sort for all lists
 date conversion does not currently work as some times are incompatible and incomparable to others due to time zone awareness
 
-juliusF -- 2016-12-13 13:05
+juliusF -- 2016-12-12 13:05
 added seatgeek client id in api call
 updated master.py with priceRange for all functions
 
@@ -104,3 +104,10 @@ noahF -- 2016-12-12 21:40
 app.py API integration
 index/output finalizations
 css for index/output
+
+juliusF -- 2016-12-12 23:10
+ticketmaster debugging
+     uncommented query split that was causing bad request error
+     minor fix with price display and respective changes in sorts.py to reflect change with price fix
+     fixed bug where datetime obj was being compared to unicode
+     
