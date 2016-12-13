@@ -5,7 +5,9 @@ def byPriceAsc(fullList):
     for i in fullList:
         if i[6] == "N/A: Price Defined by Buyer":
             i[6] = 0.00 # let prices the buyer can define float to the top                                                    
-
+        if i[6] == "N/A: Price not Defined": 
+            i[6] = 999999
+            
     orderedList = sorted(fullList, key=lambda entry:round(float(entry[6]),2))
 
     for i in orderedList:
@@ -20,7 +22,9 @@ def byPriceDes(fullList):
     for i in fullList:
         if i[6] == "N/A: Price Defined by Buyer":
             i[6] = 0.00 # let prices the buyer can define float to the top                                                    
-
+        if i[6] == "N/A: Price not Defined": 
+            i[6] = 999999
+            
     orderedList = sorted(fullList, key=lambda entry: round(float(entry[6]),2), reverse=True)
 
     for i in orderedList:
@@ -32,8 +36,23 @@ def byPriceDes(fullList):
     return orderedList
 
 def byDateAsc(fullList):
-   orderedList = sorted(fullList, key=lambda entry: entry[4])
-   return orderedList
+
+    datedList = fullList
+    undatedList = []
+    
+    for i in datedList:
+        if "TBA" in str(i[4]) or "N/A" in str(i[4]):
+            undatedList.append(i)
+
+    for i in undatedList:
+        datedList.remove(i)
+    
+    orderedList = sorted(datedList, key=lambda entry: entry[4])
+
+    for i in undatedList:
+        orderedList.append(i)
+    
+    return orderedList
 
 def byDateDes(fullList):
    orderedList = sorted(fullList, key=lambda entry: entry[4],reverse=True)

@@ -50,7 +50,10 @@ def ticketmaster(query):
                 entry.append(eventName)
                 entry.append(perfName)
                 entry.append(url)
-                entry.append(dateutil.parser.parse(time))
+                if not "TBA" in time and not "N/A" in time:
+                    entry.append(str(dateutil.parser.parse(time)))
+                else:
+                    entry.append(time)
                 entry.append(ticket_type)
                 entry.append(price)
                 entry.append(seat)
@@ -75,7 +78,7 @@ def ticketmaster(query):
 
 ## TESTING ##
 
-'''
+
 def main():
     fullList = ticketmaster("new york")
     orderedList = sorts.byDateAsc(fullList)
@@ -85,4 +88,4 @@ def main():
 
 
 main()
-'''
+
