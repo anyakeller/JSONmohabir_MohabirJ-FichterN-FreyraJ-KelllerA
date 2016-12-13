@@ -96,10 +96,13 @@ def byAlphaEventAsc(query,minP,maxP):
 
     fullList = leapList + masterList + geekList
 
-    fullList = utils.sorts.byAlphaEventAsc(fullList)
+    # fullList = utils.sorts.byAlphaEventAsc(fullList)
 
-    return utils.sorts.priceRange(fullList,minP,maxP)
+    fullList = sorts.byAlphaEventAsc(fullList)
 
+    # return utils.sorts.priceRange(fullList,minP,maxP)
+
+    return sorts.priceRange(fullList,minP,maxP)
 
 def byAlphaEventDes(query,minP,maxP):
 
@@ -113,18 +116,22 @@ def byAlphaEventDes(query,minP,maxP):
 
     fullList = leapList + masterList + geekList
 
-    fullList = utils.sorts.byAlphaEventDes(fullList)
+    # fullList = utils.sorts.byAlphaEventDes(fullList)
 
-    return utils.sorts.priceRange(fullList,minP,maxP)
+    fullList = sorts.byAlphaEventDes(fullList)
+
+    # return utils.sorts.priceRange(fullList,minP,maxP)
+
+    return sorts.priceRange(fullList,minP,maxP)
 
 ## Testing ##
 
 
-def main():
-    listF = byPriceAsc("music",0,900)
+# def main():
+#     listF = byDateAsc("music",0,900)
 
-    for i in listF:
-        print(i[6])
+#     for i in listF:
+#         print(i[4])
 
-main()
+# main()
 
