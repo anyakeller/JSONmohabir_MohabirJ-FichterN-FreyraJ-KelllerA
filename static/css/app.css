@@ -1,0 +1,27 @@
+body {
+    background-color: #FCB5B5;
+    animation-name: animate-bg;
+    animation-duration: 3s;
+}
+
+@keyframes animate-bg {
+    from {
+        background-color: #FCCCC2;
+    }
+    to {
+        background-color: #FCB5B5;
+    }
+}
+
+.top-bar, .top-bar ul {
+    background-color: #FCDDF2;
+}
+
+.button {
+    background-color: #80CED7;
+    border-radius: 5px;
+}
+
+.slider-handle {
+    background-color: #80CED7;
+}

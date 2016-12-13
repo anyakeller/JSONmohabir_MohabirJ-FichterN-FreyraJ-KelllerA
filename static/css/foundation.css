@@ -1,48 +1,21 @@
 @charset "UTF-8";
 
-/*My stuff*/
 .topbarimg {
-    height: 50%;
-    width: 50%;
+    height: 30%;
+    width: 30%;
 }
 
 
-
-
-/**
- * Foundation for Sites by ZURB
- * Version 6.2.4
- * foundation.zurb.com
- * Licensed under MIT Open Source
- */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-/**
-   * 1. Set default font family to sans-serif.
-   * 2. Prevent iOS and IE text size adjust after device orientation change,
-   *    without disabling user zoom.
-   */
 html {
-  font-family: sans-serif;
-  /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */ }
-
-/**
-   * Remove default margin.
-   */
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    background-color: #fcb5b5;
+}
 body {
-  margin: 0; }
+    margin: 0;
+}
 
-/* HTML5 display definitions
-     ========================================================================== */
-/**
-   * Correct `block` display not defined for any HTML5 element in IE 8/9.
-   * Correct `block` display not defined for `details` or `summary` in IE 10/11
-   * and Firefox.
-   * Correct `block` display not defined for `main` in IE 11.
-   */
 article,
 aside,
 details,
@@ -56,12 +29,9 @@ menu,
 nav,
 section,
 summary {
-  display: block; }
+    display: block;
+}
 
-/**
-   * 1. Correct `inline-block` display not defined in IE 8/9.
-   * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
-   */
 audio,
 canvas,
 progress,
@@ -2076,7 +2046,7 @@ select {
   border-radius: 0;
   position: relative;
   color: #0a0a0a;
-  background-color: white; }
+  background-color: #FCDDF2; }
   .callout > :first-child {
     margin-top: 0; }
   .callout > :last-child {
@@ -3444,9 +3414,6 @@ table.hover tbody tr:nth-of-type(even):hover {
     display: table; }
   .top-bar::after {
     clear: both; }
-  .top-bar,
-  .top-bar ul {
-    background-color: #e6e6e6; }
   .top-bar input {
     max-width: 200px;
     margin-right: 1rem; }

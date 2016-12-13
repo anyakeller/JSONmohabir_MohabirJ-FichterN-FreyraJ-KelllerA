@@ -96,3 +96,11 @@ date conversion does not currently work as some times are incompatible and incom
 juliusF -- 2016-12-13 13:05
 added seatgeek client id in api call
 updated master.py with priceRange for all functions
+
+noahF -- 2016-12-12 13:05
+Working on app.py & output.html working together
+
+noahF -- 2016-12-12 21:40
+app.py API integration
+index/output finalizations
+css for index/output
