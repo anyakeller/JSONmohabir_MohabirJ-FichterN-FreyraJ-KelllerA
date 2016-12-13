@@ -48,7 +48,7 @@ def seatgeek(query):
             entry.append(eventName)
             entry.append(perfName)
             entry.append(url)
-            entry.append(dateutil.parser.parse(time)) # datetime: year, month, day, hour, minute, second
+            entry.append(str(dateutil.parser.parse(time))) # datetime: year, month, day, hour, minute, second
             entry.append(ticket_type)
             entry.append(price)
             entry.append(seat)

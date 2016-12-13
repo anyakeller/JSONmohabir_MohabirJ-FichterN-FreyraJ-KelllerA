@@ -63,7 +63,7 @@ def ticketleap(query):
                 entry.append(perfName)
                 entry.append(data['url'])
                 time = data['start_utc']
-                entry.append(dateutil.parser.parse(time))
+                entry.append(str(dateutil.parser.parse(time)))
                 entry.append(ticket_type['name'])
                 
                 if(ticket_type['price'] == "BUYER_DEFINED_PRICE"):
