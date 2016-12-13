@@ -10,11 +10,11 @@ from requests.auth import HTTPBasicAuth
 #
 def ticketmaster(query):
 
-   #yq = query.split("")[0]
+    q = query.split(" ")[0]
 
     fullList = []
 
-    link = "https://app.ticketmaster.com/discovery/v2/events.json?keyword="+query+"&dmaId=345&apikey=pH93aoYEABgaNXBfcWGS5fS9cid3QuAw"
+    link = "https://app.ticketmaster.com/discovery/v2/events.json?keyword="+q+"&dmaId=345&apikey=pH93aoYEABgaNXBfcWGS5fS9cid3QuAw"
     u = urllib2.urlopen(link)
     response = u.read()
     data = json.loads(response)
@@ -75,7 +75,7 @@ def ticketmaster(query):
 ## TESTING ##
 
 def main():
-    fullList = ticketmaster("asdf")
+    fullList = ticketmaster("new york")
     orderedList = sorts.byDateAsc(fullList)
     priceRange = sorts.priceRange(orderedList,10,140)
     for i in priceRange:
