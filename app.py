@@ -23,8 +23,23 @@ def output():
             eventList = utils.master.byPriceAsc(request.form["searchTerm"],int(request.form["minPrice"]),int(request.form["maxPrice"]))
             if not eventList:
                 eventList = [['No events found. Please try again.','','','#','','','','']]
+            session['searchTerm'] = request.form['searchTerm']
+            session['minPrice'] = request.form['minPrice']
+            session['maxPrice'] = request.form['maxPrice']
     else:
-        eventList = [['No events found. Please try again.','','','#','','','','']]
+        if request.form["filterbuttons"] == "filterPA":
+            eventList = utils.master.byPriceAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
+        if request.form["filterbuttons"] == "filterPD":
+            eventList = utils.master.byPriceDes(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
+        if request.form["filterbuttons"] == "filterDA":
+            eventList = utils.master.byDateAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
+        if request.form["filterbuttons"] == "filterDD":
+            eventList = utils.master.byDateDes(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
+        if request.form["filterbuttons"] == "filterAA":
+            eventList = utils.master.byPriceAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
+        if request.form["filterbuttons"] == "filterAD":
+            eventList = utils.master.byPriceAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
+    
     return render_template("output.html",events=eventList)
 
 @app.route("/login", methods=["POST"])
