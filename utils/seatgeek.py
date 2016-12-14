@@ -6,7 +6,7 @@ from requests.auth import HTTPBasicAuth
 #    Input: Single word query
 #  Returns: List of events relevant to the query in New York and information separated in a list of entries
 #
-#           [organization, event, performance, url, time, ticket type, price, seat]
+#           Format for entries in fullList: [organization, event, performance, url, time, ticket type, price, seat]
 #
 def seatgeek(query):
 
@@ -18,7 +18,8 @@ def seatgeek(query):
     data = json.loads(response)
 
     events = data['events']
-    
+
+    # Events
     for i in events:
         
         orgName = "N/A"
@@ -29,6 +30,7 @@ def seatgeek(query):
             
         seat = "N/A"
 
+        # Performances
         for j in i['performers']:
 
             
@@ -38,7 +40,7 @@ def seatgeek(query):
                 float(i['stats']['average_price'])
                 price = i['stats']['average_price'] # seatgeek does not show ticket types nor specific prices or seats
             except:
-                price = 999999
+                price = 999999 # will allow undefined price to sink when sorted
 
             
             entry = []
@@ -48,7 +50,10 @@ def seatgeek(query):
             entry.append(eventName)
             entry.append(perfName)
             entry.append(url)
+
+            # conversion from datetime obj to string allows for easier comparison
             entry.append(str(dateutil.parser.parse(time))) # datetime: year, month, day, hour, minute, second
+            
             entry.append(ticket_type)
             entry.append(price)
             entry.append(seat)

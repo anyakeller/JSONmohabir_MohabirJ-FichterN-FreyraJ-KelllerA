@@ -1,8 +1,13 @@
 # Compilation of Master Sorted Lists Module
+#
+# Orders master list of each list returned by an api when requesting events related to <query>
+#
 
 #import utils.sorts,utils.ticketleap,utils.ticketmaster,utils.seatgeek
 import sorts,ticketleap,ticketmaster,seatgeek
 
+# orders entries by price in ascending order
+# takes in query string and upper and lower bounds on price
 def byPriceAsc(query,minP,maxP):
 
     # leapList = utils.ticketleap.ticketleap(query)
@@ -23,6 +28,8 @@ def byPriceAsc(query,minP,maxP):
 
     return sorts.priceRange(fullList,minP,maxP)
 
+# orders entries by price in descending order
+# takes in query string and upper and lower bounds on price
 def byPriceDes(query,minP,maxP):
 
     # leapList = utils.ticketleap.ticketleap(query)
@@ -43,7 +50,8 @@ def byPriceDes(query,minP,maxP):
 
     return sorts.priceRange(fullList,minP,maxP)
 
-
+# orders entries by date in ascending order
+# takes in query string and upper and lower bounds on price
 def byDateAsc(query,minP,maxP):
 
     # leapList = utils.ticketleap.ticketleap(query)
@@ -64,6 +72,8 @@ def byDateAsc(query,minP,maxP):
 
     return sorts.priceRange(fullList,minP,maxP)
 
+# orders entries by date in descending order
+# takes in query string and upper and lower bounds on price
 def byDateDes(query,minP,maxP):
 
     # leapList = utils.ticketleap.ticketleap(query)
@@ -84,6 +94,8 @@ def byDateDes(query,minP,maxP):
 
     return sorts.priceRange(fullList,minP,maxP)
 
+# orders entries alphabetically in ascending order
+# takes in query string and upper and lower bounds on price
 def byAlphaEventAsc(query,minP,maxP):
 
     # leapList = utils.ticketleap.ticketleap(query)
@@ -104,6 +116,8 @@ def byAlphaEventAsc(query,minP,maxP):
 
     return sorts.priceRange(fullList,minP,maxP)
 
+# orders entries alphabetically in descending order
+# takes in query string and upper and lower bounds on price
 def byAlphaEventDes(query,minP,maxP):
 
     # leapList = utils.ticketleap.ticketleap(query)

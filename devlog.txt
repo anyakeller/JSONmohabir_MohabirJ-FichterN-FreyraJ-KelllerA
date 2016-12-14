@@ -126,3 +126,7 @@ datetime comparison works regardless of format (unaware vs naive)
 
 noahF -- 2016-12-13 21:00
 Fully completed index and output, including a sort by button and css.
+
+juliusF -- 2016-12-14 2:20
+Found some bugs to be removed/fixed
+Commented code

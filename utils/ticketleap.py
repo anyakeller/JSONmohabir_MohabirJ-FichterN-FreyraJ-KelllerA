@@ -27,7 +27,7 @@ def ticketleap(query):
     search = data['events']
     events = []
     for e in search:
-        if e['venue_region_name'] == "NY":
+        if e['venue_region_name'] == "NY": # only searches in NY state
             events.append(e)
     for i in events:
         
@@ -56,14 +56,17 @@ def ticketleap(query):
             
             # Ticket Types
             for ticket_type in data['ticket_types']:
-                entry = [] #[organization, event, performance, url, time, ticket type, price, seat]
+                entry = [] #[organization, event, performance, url, time, ticket type, price, seat] to be placed as entry in fullList
 
                 entry.append(orgName)
                 entry.append(eventName)
                 entry.append(perfName)
                 entry.append(data['url'])
                 time = data['start_utc']
+
+                # conversion from datetime obj to string makes for easier comparison
                 entry.append(str(dateutil.parser.parse(time)))
+                
                 entry.append(ticket_type['name'])
                 
                 if(ticket_type['price'] == "BUYER_DEFINED_PRICE"):
