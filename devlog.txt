@@ -86,8 +86,14 @@ Began working on flask app.py
 juliusF -- 2016-12-10 22:40
 finished priceRange() functions for ticketleap and ticketmaster, resurrected devlog after lost to some weird merge errors, will work on date conversion later
 
+jasonM -- 2016-12-10 17:20
+Finished byPriceDes(),byPriceDes(), byAlphaEvent(), byAlphaPerf() for TicketMaster
+
 noahF -- 2016-12-11 12:00
 Fixed forms in html files so each can be used separately, prepared for utils integration and user integration if we choose to go that route
+
+jasonM -- 2016-12-11 20:40
+Finished all sorts for TicketMaster, TicketLeap, SeatGeek and made sorts.py util due to repetitive nature of code; fixed time parser issue with SeatGeek and TicketMaster
 
 juliusF -- 2016-12-12 1:30
 finished master.py, will restructure into one function with a switchboard for each type of sort for all lists
@@ -99,6 +105,9 @@ updated master.py with priceRange for all functions
 
 noahF -- 2016-12-12 13:05
 Working on app.py & output.html working together
+
+jasonM -- 2016-12-12 7:15
+Updated the API Scripts to have the name of the API and began working on time parser issue with TicketMaster
 
 noahF -- 2016-12-12 21:40
 app.py API integration
