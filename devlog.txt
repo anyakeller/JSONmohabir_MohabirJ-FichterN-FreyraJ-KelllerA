@@ -123,3 +123,6 @@ ticketmaster debugging
 juliusF -- 2016-12-12 23:45
 datetime comparison works regardless of format (unaware vs naive)
     basically converted the datetime objects into strings and compared those instead of comparing different data types
+
+noahF -- 2016-12-13 21:00
+Fully completed index and output, including a sort by button and css.
