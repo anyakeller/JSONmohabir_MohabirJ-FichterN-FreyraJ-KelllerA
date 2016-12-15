@@ -12,7 +12,9 @@ Usage
 ----------
 To run website from terminal:
 - make sure flask is installed
-- make sure python-dateutil is installed
+- make sure python-dateutil is installed (pip install python-dateutil)
+- make sure requests is installed (pip install requests)
+----------
 run:
 '''
 $python app.py
