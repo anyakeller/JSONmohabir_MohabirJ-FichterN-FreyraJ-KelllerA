@@ -124,12 +124,18 @@ juliusF -- 2016-12-12 23:45
 datetime comparison works regardless of format (unaware vs naive)
     basically converted the datetime objects into strings and compared those instead of comparing different data types
 
+jasonM -- 2016-12-13 20:00
+Began developing database schema for added functionality
+
 noahF -- 2016-12-13 21:00
 Fully completed index and output, including a sort by button and css.
-
+ 
 juliusF -- 2016-12-14 2:20
 Found some bugs to be removed/fixed
 Commented code
+
+jasonM -- 2016-13 19:00
+Removed the API Keys, added to the Git Ignore file to ensure that the keys would no longer be public, keyReader.py used to ensure this
 
 noahF -- 2016-12-13 20:00
 Fixed quicksearching, added a flash if a user does not enter a search term
