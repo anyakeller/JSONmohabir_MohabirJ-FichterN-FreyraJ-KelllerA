@@ -15,32 +15,35 @@ def index():
 
 @app.route("/output", methods=["POST"])
 def output():
-    print "session",session
-    print "request.form",request.form
+    #start with empty list
     eventList = []
-    if "searchTerm" in request.form:
-        if request.form["searchTerm"] == "":
+    if "searchTerm" in request.form: #check if user searched by main search function
+        if request.form["searchTerm"] == "": #if no search term, tell them to enter one
             flash("Please enter a search term!")
             return redirect(url_for("index"))
-        else:
+        else: #get the list from master.py (default: price ascending)
             eventList = utils.master.byPriceAsc(request.form["searchTerm"],int(request.form["minPrice"]),int(request.form["maxPrice"]))
-            if not eventList:
-                eventList = [['No events found. Please try again.','','','#','','','','']]
+            if not eventList: #if no results, tell them to try again
+                flash("No results were found. Please try again!")
+                return redirect(url_for("index"))
+            #add the search terms to the session so that the user can modify the way their output is sorted
             session['searchTerm'] = request.form['searchTerm']
             session['minPrice'] = request.form['minPrice']
             session['maxPrice'] = request.form['maxPrice']
-    elif "quicksearchTerm" in request.form:
-        if request.form["quicksearchTerm"] == "":
+    elif "quicksearchTerm" in request.form: #check if user quicksearched
+        if request.form["quicksearchTerm"] == "": #if no search term, tell them to enter one
             flash("Please enter a search term!")
             return redirect(url_for("index"))
-        else:
+        else: #get the list from master.py (default: price ascending,minP = 0, maxP = 1000)
             eventList = utils.master.byPriceAsc(request.form["quicksearchTerm"],0,1000)
-            if not eventList:
-                eventList = [['No events found. Please try again.','','','#','','','','']]
+            if not eventList: #if no results, tell them to try again
+                flash("No results were found. Please try again!")
+                return redirect(url_for("index"))
+            #add the search terms to the session so that the user can modify the way their output is sorted
             session['searchTerm'] = request.form['quicksearchTerm']
             session['minPrice'] = 0
             session['maxPrice'] = 1000
-    elif "searchTerm" in session:
+    elif "searchTerm" in session: #check if they have already searched when they try to sort
         if request.form["filterbuttons"] == "filterPA":
             eventList = utils.master.byPriceAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
         if request.form["filterbuttons"] == "filterPD":
@@ -53,15 +56,11 @@ def output():
             eventList = utils.master.byPriceAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
         if request.form["filterbuttons"] == "filterAD":
             eventList = utils.master.byPriceAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
-    else:
+    else: #if none of the above, there was an error --> try again
         flash("There was an error. Please try again!")
         return redirect(url_for("index"))
     
     return render_template("output.html",events=eventList)
-
-@app.route("/login", methods=["POST"])
-def login():
-    return None
 
 if __name__ == "__main__":
     app.debug = True
