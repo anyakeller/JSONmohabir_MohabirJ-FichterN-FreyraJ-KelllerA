@@ -1,4 +1,4 @@
-import urllib2, json, requests,dateutil.parser, sorts, reader
+import urllib2, json, requests,dateutil.parser, sorts
 from requests import auth
 from requests.auth import HTTPBasicAuth
 
@@ -12,8 +12,7 @@ def seatgeek(query):
 
     fullList = []
 
-    seatGeek_key = keyReader.returnKey("seatGeek")
-    print(seatGeek_key);
+    seatGeek_key = "NjM1OTI1MHwxNDgwOTYzNDk4"
 
     link = "https://api.seatgeek.com/2/events?q="+query.replace(" ","+")+"&venue.state=NY&client_id=" + seatGeek_key
     u = urllib2.urlopen(link)

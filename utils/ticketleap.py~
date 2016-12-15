@@ -18,10 +18,9 @@ def ticketleap(query):
     
     # Final List
     fullList = []
-    ticketLeap_key = keyReader.returnKey("ticketLeap")
 
     # Events
-    link = "http://public-api.ticketleap.com/events/by/search/"+q+"?key="+ticketLeap_key+"&page_size=100"
+    link = "http://public-api.ticketleap.com/events/by/search/"+q+"?key=2416970964522413&page_size=100"
     u = urllib2.urlopen(link)
     response = u.read()
     data = json.loads(response)
@@ -38,7 +37,7 @@ def ticketleap(query):
         orgName = i['organization_name']
         eventName = i['name']
         
-        link = "http://public-api.ticketleap.com/organizations/"+org+"/events/"+eve+"?key="+ticketLeap_key+"&page_size=100"
+        link = "http://public-api.ticketleap.com/organizations/"+org+"/events/"+eve+"?key=2416970964522413&page_size=100"
         u = urllib2.urlopen(link)
         response = u.read()
         data = json.loads(response)

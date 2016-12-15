@@ -14,9 +14,7 @@ def ticketmaster(query):
 
     fullList = []
 
-    ticketMaster_key = keyReader.returnKey("ticketMaster")
-
-    link = "https://app.ticketmaster.com/discovery/v2/events.json?keyword="+q+"&dmaId=345&apikey="+ticketMaster_key
+    link = "https://app.ticketmaster.com/discovery/v2/events.json?keyword="+q+"&dmaId=345&apikey=pH93aoYEABgaNXBfcWGS5fS9cid3QuAw"
     u = urllib2.urlopen(link)
     response = u.read()
     data = json.loads(response)
