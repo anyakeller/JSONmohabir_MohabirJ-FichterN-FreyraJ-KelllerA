@@ -1,6 +1,0 @@
-import csv
-
-with open('keys.csv', 'rb') as csvfile:
-    keyreader = csv.reader(csvfile)
-    for row in keyreader:
-        print ', '.join(row)
