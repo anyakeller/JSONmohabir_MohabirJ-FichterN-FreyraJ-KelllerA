@@ -15,6 +15,8 @@ def index():
 
 @app.route("/output", methods=["POST"])
 def output():
+    print "session",session
+    print "request.form",request.form
     eventList = []
     if "searchTerm" in request.form:
         if request.form["searchTerm"] == "":
@@ -26,7 +28,17 @@ def output():
             session['searchTerm'] = request.form['searchTerm']
             session['minPrice'] = request.form['minPrice']
             session['maxPrice'] = request.form['maxPrice']
-    else:
+    elif "quicksearchTerm" in request.form:
+        if request.form["quicksearchTerm"] == "":
+            eventList = [['No events found. Please try again.','','','#','','','','']]
+        else:
+            eventList = utils.master.byPriceAsc(request.form["quicksearchTerm"],0,1000)
+            if not eventList:
+                eventList = [['No events found. Please try again.','','','#','','','','']]
+            session['searchTerm'] = request.form['quicksearchTerm']
+            session['minPrice'] = 0
+            session['maxPrice'] = 1000
+    elif "searchTerm" in session:
         if request.form["filterbuttons"] == "filterPA":
             eventList = utils.master.byPriceAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
         if request.form["filterbuttons"] == "filterPD":
