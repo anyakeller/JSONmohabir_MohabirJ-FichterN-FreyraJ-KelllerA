@@ -33,6 +33,22 @@
 	</div>
       </div>
     </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <br><br><br>
+    {% for message in messages %}
+    <div class="row">
+      <div class="callout warning">
+	<div class="small-11 columns">
+	  <center>{{message}}</center>
+	</div>
+	<a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
     
     <br><br><br>
 
@@ -47,7 +63,10 @@
 	  <div class="row">
 	    <div class="small-2 columns">
 	      <label>Minimum Price
-		<input type="number" name="minPrice" id="minPrice">
+		<div class="input-group">
+                  <span class="input-group-label">$</span>
+                  <input type="number" name="minPrice" id="minPrice" class="input-group-field"/>
+		</div>
 	      </label>
 	    </div>
 	    <div class="small-8 columns">
@@ -59,7 +78,10 @@
 	    </div>
 	    <div class="small-2 columns">
 	      <label>Maximum Price
-		<input type="number" name="maxPrice" id="maxPrice">
+		<div class="input-group">
+                  <span class="input-group-label">$</span>
+                  <input type="number" name="maxPrice" id="maxPrice" class="input-group-field"/>
+		</div>
 	      </label>
 	    </div>
 	    <div class="row">

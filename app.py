@@ -20,7 +20,8 @@ def output():
     eventList = []
     if "searchTerm" in request.form:
         if request.form["searchTerm"] == "":
-            eventList = [['No events found. Please try again.','','','#','','','','']]
+            flash("Please enter a search term!")
+            return redirect(url_for("index"))
         else:
             eventList = utils.master.byPriceAsc(request.form["searchTerm"],int(request.form["minPrice"]),int(request.form["maxPrice"]))
             if not eventList:
@@ -30,7 +31,8 @@ def output():
             session['maxPrice'] = request.form['maxPrice']
     elif "quicksearchTerm" in request.form:
         if request.form["quicksearchTerm"] == "":
-            eventList = [['No events found. Please try again.','','','#','','','','']]
+            flash("Please enter a search term!")
+            return redirect(url_for("index"))
         else:
             eventList = utils.master.byPriceAsc(request.form["quicksearchTerm"],0,1000)
             if not eventList:
@@ -51,6 +53,9 @@ def output():
             eventList = utils.master.byPriceAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
         if request.form["filterbuttons"] == "filterAD":
             eventList = utils.master.byPriceAsc(session['searchTerm'],int(session['minPrice']),int(session['maxPrice']))
+    else:
+        flash("There was an error. Please try again!")
+        return redirect(url_for("index"))
     
     return render_template("output.html",events=eventList)
 
