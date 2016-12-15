@@ -88,13 +88,13 @@ def ticketmaster(query):
 
 ## TESTING ##
 
+#def main():
+#   fullList = ticketmaster("new york")
+#    orderedList = sorts.byDateAsc(fullList)
+#    priceRange = sorts.priceRange(orderedList,10,140)
+#    for i in priceRange:
+#        print(i[1] + " | Price:" + str(i[6]) + " | Time:" + str(i[4]) )
 
-def main():
-    fullList = ticketmaster("new york")
-    orderedList = sorts.byDateAsc(fullList)
-    priceRange = sorts.priceRange(orderedList,10,140)
-    for i in priceRange:
-        print(i[1] + " | Price:" + str(i[6]) + " | Time:" + str(i[4]) )
 
-
-main()
+#main()
+    
