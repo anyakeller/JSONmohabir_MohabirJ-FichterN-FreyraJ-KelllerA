@@ -76,14 +76,21 @@
     <div class="row">
       <div class="small-12 columns">
 	{% for event in events %}
-	<a href={{event[3]}}>
 	<div class="callout">
-	  <h3>Name: {{event[1]}} - {{event[2]}}</h3>
-	  <h4>{{event[0]}}</h4>
-	  <hr>
-	  <p>{{event[5]}} - {{event[6]}} - {{event[8]}}</p>
+	  <div class="row">
+	    <div class="small-2 columns">
+	      <h4>{{event[2]}}</h4>
+	    </div>
+	    <div class="small-8 columns">
+	      <h3>{{event[1]}}</h3>
+	    </div>
+	    <div class="small-2 columns">
+	      <a href="{{event[3]}}" class="button success expand">
+		<p>${{event[6]}}</p>
+	      </a>
+	    </div>
+	  </div>
 	</div>
-	</a>
 	{% endfor %}
       </div>
     </div>
