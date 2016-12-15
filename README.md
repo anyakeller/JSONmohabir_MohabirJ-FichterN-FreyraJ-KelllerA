@@ -14,9 +14,5 @@ To run website from terminal:
 - make sure flask is installed
 - make sure python-dateutil is installed (pip install python-dateutil)
 - make sure requests is installed (pip install requests)
-----------
-run:
-'''
-$python app.py
-'''
-The website should be up on 27.0.0.1:5000
+- run: $python app.py
+- open a browser to 27.0.0.1:5000
