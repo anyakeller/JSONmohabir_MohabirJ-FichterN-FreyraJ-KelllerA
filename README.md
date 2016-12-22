@@ -22,3 +22,5 @@ To run website from terminal:
 
 Known Bugs
 ----------
+- There are a lot of event results that happened already
+- If you click submit for sorts without selecting an option, it crashes.
