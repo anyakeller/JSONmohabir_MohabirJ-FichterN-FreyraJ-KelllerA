@@ -3,6 +3,7 @@ by JSONMohabir
 ===============================================
 - [About] (#about)
 - [Usage] (#usage)
+- [Known Bugs] (#bugs)
 
 About
 ----------
@@ -14,5 +15,10 @@ To run website from terminal:
 - make sure flask is installed
 - make sure python-dateutil is installed (pip install python-dateutil)
 - make sure requests is installed (pip install requests)
+- make sure keys.csv is in main direcotry
+ - keys.csv should be formatted: name,key
 - run: $python app.py
 - open a browser to 27.0.0.1:5000
+
+Known Bugs
+----------
