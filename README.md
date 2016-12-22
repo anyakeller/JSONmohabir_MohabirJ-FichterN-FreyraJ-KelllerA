@@ -3,7 +3,7 @@ by JSONMohabir
 ===============================================
 - [About] (#about)
 - [Usage] (#usage)
-- [Known Bugs] (#bugs)
+- [Known Bugs] (#known-bugs)
 
 About
 ----------
